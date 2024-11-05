@@ -1,6 +1,6 @@
 # 🚀 PIC Microcontroller Mini Projects
 
-Welcome to the **PIC Microcontroller Mini Projects** repository! This collection includes several exciting microcontroller-based projects using PIC, each demonstrating a unique application of hardware and software. All projects come with source code, Proteus simulation files, and detailed explanations.
+Welcome to this repository! This collection includes several exciting microcontroller-based projects using PIC, each demonstrating a unique application of hardware and software. All projects come with source code, Proteus simulation files, and detailed explanations.
 
 Each project is contained in a zip folder, which includes the following:
 - **C Code** (`.c`): The source code for the project.
