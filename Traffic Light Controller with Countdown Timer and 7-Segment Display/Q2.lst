@@ -1,0 +1,267 @@
+CCS PCH C Compiler, Version 5.015, 5967               20-mar-24 10:28
+
+               Filename:   C:\Users\gabri\OneDrive\Área de Trabalho\Projetos\PROVA - gabriel paixao\Q2\Q2.lst
+
+               ROM used:   282 bytes (7%)
+                           Largest free fragment is 3814
+               RAM used:   15 (3%) at main() level
+                           16 (3%) worst case
+               Stack used: 1 locations
+               Stack size: 31
+
+*
+0000:  GOTO   002C
+.................... // EXEMPLO  03. SEMÁFORO SIMPLES 
+....................  
+.................... #include <18F2221.h> 
+.................... //////////// Standard Header file for the PIC18F2221 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F2221 
+....................  
+.................... #list 
+....................  
+.................... #use delay(clock=4000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  0F
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    002A
+000E:  MOVLW  01
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  4A
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  BRA    0026
+0026:  DECFSZ FEF,F
+0028:  BRA    000E
+002A:  RETURN 0
+.................... #fuses INTRC_IO,NOWDT,PUT,BROWNOUT,NOLVP,NOMCLR 
+....................  
+.................... #DEFINE S1_R PIN_B2 
+.................... #DEFINE S1_Y PIN_B1 
+.................... #DEFINE S1_G PIN_B0 
+.................... #DEFINE S2_R PIN_B5 
+.................... #DEFINE S2_Y PIN_B4 
+.................... #DEFINE S2_G PIN_B3 
+....................  
+.................... int8 segmentos[] = { 
+....................    0b0111111,  // 0 
+....................    0b0000110,  // 1 
+....................    0b1011011,  // 2 
+....................    0b1001111,  // 3 
+....................    0b1100110,  // 4 
+....................    0b1101101,  // 5 
+....................    0b1111101,  // 6 
+....................    0b0000111,  // 7 
+....................    0b1111111,  // 8 
+....................    0b1101111   // 9 
+.................... }; 
+....................  
+....................  
+.................... void main(){  
+002C:  CLRF   FF8
+002E:  BCF    FD0.7
+0030:  MOVF   FC1,W
+0032:  ANDLW  C0
+0034:  IORLW  0F
+0036:  MOVWF  FC1
+0038:  MOVLW  07
+003A:  MOVWF  FB4
+003C:  MOVLW  3F
+003E:  MOVWF  04
+0040:  MOVLW  06
+0042:  MOVWF  05
+0044:  MOVLW  5B
+0046:  MOVWF  06
+0048:  MOVLW  4F
+004A:  MOVWF  07
+004C:  MOVLW  66
+004E:  MOVWF  08
+0050:  MOVLW  6D
+0052:  MOVWF  09
+0054:  MOVLW  7D
+0056:  MOVWF  0A
+0058:  MOVLW  07
+005A:  MOVWF  0B
+005C:  MOVLW  7F
+005E:  MOVWF  0C
+0060:  MOVLW  6F
+0062:  MOVWF  0D
+....................  
+....................    while(1){ 
+.................... //S1 
+....................        output_low(S1_R); //VERDE 
+0064:  BCF    F93.2
+0066:  BCF    F8A.2
+....................        output_low(S1_Y);  
+0068:  BCF    F93.1
+006A:  BCF    F8A.1
+....................        output_high(S1_G);  
+006C:  BCF    F93.0
+006E:  BSF    F8A.0
+....................          
+....................        //S2 
+....................        output_high(S2_R); //VERMELHO 
+0070:  BCF    F93.5
+0072:  BSF    F8A.5
+....................        output_low(S2_Y);  
+0074:  BCF    F93.4
+0076:  BCF    F8A.4
+....................        output_low(S2_G);  
+0078:  BCF    F93.3
+007A:  BCF    F8A.3
+....................         
+....................        delay_ms(100); 
+007C:  MOVLW  64
+007E:  MOVWF  0F
+0080:  RCALL  0004
+....................         
+....................        //S1 
+....................        output_high(S1_Y); //AMARELO 
+0082:  BCF    F93.1
+0084:  BSF    F8A.1
+....................        output_low(S1_G);  
+0086:  BCF    F93.0
+0088:  BCF    F8A.0
+....................         
+....................        //S2 
+....................        output_high(S2_R); //VERMELHO 
+008A:  BCF    F93.5
+008C:  BSF    F8A.5
+....................         
+....................         delay_ms(100); //espera 4s 
+008E:  MOVLW  64
+0090:  MOVWF  0F
+0092:  RCALL  0004
+....................       //S1 
+....................        output_high(S1_R); //VERMELHO 
+0094:  BCF    F93.2
+0096:  BSF    F8A.2
+....................        output_low(S1_Y); 
+0098:  BCF    F93.1
+009A:  BCF    F8A.1
+....................        output_low(S1_G);  
+009C:  BCF    F93.0
+009E:  BCF    F8A.0
+....................        //S2 
+....................        output_low(S2_R); //VERDE 
+00A0:  BCF    F93.5
+00A2:  BCF    F8A.5
+....................        output_high(S2_G);  
+00A4:  BCF    F93.3
+00A6:  BSF    F8A.3
+....................          
+....................        delay_ms(100); 
+00A8:  MOVLW  64
+00AA:  MOVWF  0F
+00AC:  RCALL  0004
+....................        //S1 
+....................        output_low(S1_Y); //VERMELHO 
+00AE:  BCF    F93.1
+00B0:  BCF    F8A.1
+....................        output_high(S1_R); 
+00B2:  BCF    F93.2
+00B4:  BSF    F8A.2
+....................        //S2 
+....................         output_high(S2_Y); 
+00B6:  BCF    F93.4
+00B8:  BSF    F8A.4
+....................         output_low(S2_G);  
+00BA:  BCF    F93.3
+00BC:  BCF    F8A.3
+....................          
+....................         if((input(pin_a0))==1){ 
+00BE:  BSF    F92.0
+00C0:  BTFSS  F80.0
+00C2:  BRA    00C6
+....................             break;} 
+00C4:  BRA    00C8
+00C6:  BRA    0064
+....................    } 
+....................     
+....................    int numero = 9; 
+00C8:  MOVLW  09
+00CA:  MOVWF  0E
+....................    while(1){ 
+....................       if((input(pin_a0))==1){ 
+00CC:  BSF    F92.0
+00CE:  BTFSS  F80.0
+00D0:  BRA    0116
+....................          while(numero>=0){ 
+....................             output_c(segmentos[numero]); 
+00D2:  CLRF   03
+00D4:  MOVF   0E,W
+00D6:  ADDLW  04
+00D8:  MOVWF  FE9
+00DA:  MOVLW  00
+00DC:  ADDWFC 03,W
+00DE:  MOVWF  FEA
+00E0:  MOVFF  FEF,0F
+00E4:  CLRF   F94
+00E6:  MOVFF  0F,F8B
+....................             numero--; 
+00EA:  DECF   0E,F
+....................             delay_ms(100); 
+00EC:  MOVLW  64
+00EE:  MOVWF  0F
+00F0:  RCALL  0004
+....................             if(numero == 0){ 
+00F2:  MOVF   0E,F
+00F4:  BNZ   00F8
+....................                break;} 
+00F6:  BRA    00FA
+00F8:  BRA    00D2
+....................          } 
+....................          numero = 9;  // reset the count 
+00FA:  MOVLW  09
+00FC:  MOVWF  0E
+....................          //S1 
+....................          output_high(S1_G); //VERDE 
+00FE:  BCF    F93.0
+0100:  BSF    F8A.0
+....................          output_low(S1_R);  
+0102:  BCF    F93.2
+0104:  BCF    F8A.2
+....................          output_low(S1_Y); 
+0106:  BCF    F93.1
+0108:  BCF    F8A.1
+....................          //S2 
+....................          output_high(S2_R); //VERMELHO 
+010A:  BCF    F93.5
+010C:  BSF    F8A.5
+....................          output_low(S2_Y);  
+010E:  BCF    F93.4
+0110:  BCF    F8A.4
+....................          output_low(S2_G);  
+0112:  BCF    F93.3
+0114:  BCF    F8A.3
+....................       } 
+0116:  BRA    00CC
+....................    } 
+....................     
+.................... } 
+....................  
+0118:  SLEEP 
+
+Configuration Fuses:
+   Word  1: C800   INTRC_IO FCMEN IESO
+   Word  2: 1E1E   PUT BROWNOUT BORV21 NOWDT WDT32768
+   Word  3: 0700   CCP2C1 PBADEN LPT1OSC NOMCLR
+   Word  4: 00B1   STVREN NOLVP BBSIZ512 NOXINST NODEBUG
+   Word  5: C003   NOPROTECT NOCPB NOCPD
+   Word  6: E003   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 4003   NOEBTR NOEBTRB

@@ -1,0 +1,63 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-00D segmentos
+00E     main.numero
+00F     @delay_ms1.P1
+00F     main.@SCRATCH1
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002C  @cinit1
+00002C  main
+00003C  @cinit2
+
+Project Directory:
+    C:\Users\gabri\OneDrive\Área de Trabalho\Projetos\PROVA - gabriel paixao\Q2\
+
+Project Files:
+    Q2.c                                                    [20-mar-24 10:28  CRC=06F8EDC9]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F2221.h [12-nov-13 14:35  CRC=DCDCFCFD]
+
+Source signature=C0B2E7C3
+
+Units:
+    Q2 (main)
+
+Compiler Settings:
+    Processor:      PIC18F2221
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Q2.xsym
+    Errors:      Q2.err
+    Ext Symbols: Q2.esym
+    INHX32:      Q2.hex
+    Symbols:     Q2.sym
+    List:        Q2.lst
+    Debug/COFF:  Q2.cof
+    Project:     Q2.ccspjt
+    Call Tree:   Q2.tre
+    Statistics:  Q2.STA

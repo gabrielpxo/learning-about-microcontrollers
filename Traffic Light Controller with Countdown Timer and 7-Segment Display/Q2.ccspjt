@@ -1,0 +1,22 @@
+[PROJECT]
+Target=Q2.hex
+Processor_Text=PIC18F2221
+CCSVersion=5.015
+Compiler=PCH
+[Target Data]
+FileList=Q2.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\DriversC:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[Q2.c]
+Type=4
+[mru-list]
+1=Q2.c
+[Opened Files]
+1=Q2.c
+2=..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F2221.h
+3=..\..\..\..\..\Downloads\01. ACIONANDO UM LED POR UM BOTÃO\ACIONANDO UM LED POR UM BOTÃO.c
+4=..\..\contador com microcontrolador\cont.c
+5=
+[Units]
+Count=1
+1=Q2 (main)
