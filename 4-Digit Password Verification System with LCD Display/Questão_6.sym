@@ -1,0 +1,118 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+006     lcdlat
+006     lcd
+008     kbd
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     kbd_getc.kbd_call_count
+021.0   kbd_getc.kbd_down
+022     kbd_getc.last_key
+023     kbd_getc.col
+024     c
+025-029 pass
+02A-02E senha
+02F     cont
+030     ver
+031     @TRIS_C
+032     kbd_getc.kchar
+032     lcd_init.i
+032     MAIN.@SCRATCH1
+032     @PSTRINGC7_663.@SCRATCH1
+033     kbd_getc.row
+033     lcd_init.@SCRATCH1
+033     MAIN.@SCRATCH2
+033     @PSTRINGC7_663.@SCRATCH2
+034     @MUL88.P1
+034     kbd_getc.@SCRATCH1
+034     @PSTRINGC7_663.@SCRATCH3
+035     @MUL88.P1
+035     @PSTRINGC7_663.@SCRATCH4
+036     lcd_putc.c
+037     lcd_gotoxy.x
+037     @delay_ms1.P1
+038     lcd_gotoxy.y
+039     lcd_gotoxy.address
+03A     lcd_gotoxy.@SCRATCH1
+03B     lcd_send_byte.address
+03C     lcd_send_byte.n
+03D     lcd_read_byte.low
+03D     lcd_send_byte.@SCRATCH1
+03E     lcd_send_nibble.n
+03E     lcd_read_byte.high
+03F     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+086     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  KEYS.call
+000008  KEYS.data
+000014  LCD_INIT_STRING.call
+000018  LCD_INIT_STRING.data
+00001C  @const683.call
+000024  @const686.call
+00002D  @const688.call
+000035  @const690.call
+00003E  kbd_init
+000041  @delay_ms1
+000055  lcd_send_nibble
+000066  lcd_read_nibble
+00006C  lcd_send_byte
+000072  lcd_read_byte
+0000AE  lcd_init
+0000E1  lcd_gotoxy
+0000F3  lcd_putc
+00011F  @PSTRINGC7_663
+00016A  kbd_getc
+0001BA  @MUL88
+0001F2  MAIN
+0001F2  @cinit1
+0001FD  @cinit2
+
+Project Directory:
+    C:\Users\gerle\OneDrive\Documentos\CCS C Projects\Prova 2\Questão 6\
+
+Project Files:
+    Questão_6.c                                             [05-abr-24 19:15  CRC=53CC24A9]
+    ..\..\..\..\..\Downloads\Questao_4\Questao_4.h          [04-abr-24 17:35  CRC=CF12E969]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [21-jun-13 16:04  CRC=4E65664C]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\KBD.C [23-set-10 09:09  CRC=8814BCFC]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [23-ago-12 09:01  CRC=D28E8746]
+
+Source signature=9E763FE6
+
+Units:
+    Questão_6 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Questão_6.xsym
+    Errors:      Questão_6.err
+    Ext Symbols: Questão_6.esym
+    INHX8:       Questão_6.hex
+    Symbols:     Questão_6.sym
+    List:        Questão_6.lst
+    Debug/COFF:  Questão_6.cof
+    Project:     Questão_6.ccspjt
+    Call Tree:   Questão_6.tre
+    Statistics:  Questão_6.STA
