@@ -2,7 +2,7 @@
 
 Welcome to this repository! This collection includes several exciting microcontroller-based projects using PIC, each demonstrating a unique application of hardware and software. All projects come with source code, Proteus simulation files, and detailed explanations.
 
-Each project is contained in a zip folder, which includes the following:
+Each project includes the following:
 - **C Code** (`.c`): The source code for the project.
 - **Hex Code** (`.hex`): The compiled code ready to upload to the PIC microcontroller.
 - **Proteus Project** (`.pdsprj`): The circuit schematic and simulation for Proteus.
@@ -37,10 +37,9 @@ Each project is contained in a zip folder, which includes the following:
 
 ## 💻 Getting Started
 
-1. **Unzip** the folder of the desired project.
-2. **Open** the `.pdsprj` file in **Proteus** to view and simulate the circuit.
-3. Use the **C code** to understand the logic or modify it for custom applications.
-4. Load the **Hex file** onto your PIC microcontroller if you want to replicate the project in hardware.
+1. **Open** the `.pdsprj` file in **Proteus** to view and simulate the circuit.
+2. Use the **C code** to understand the logic or modify it for custom applications.
+3. Load the **Hex file** onto your PIC microcontroller if you want to replicate the project in hardware.
 
 ---
 
