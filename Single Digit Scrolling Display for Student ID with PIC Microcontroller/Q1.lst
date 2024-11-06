@@ -1,0 +1,134 @@
+CCS PCM C Compiler, Version 5.015, 5967               20-mar-24 08:21
+
+               Filename:   C:\Users\gabri\OneDrive\Área de Trabalho\Projetos\PROVA\Q1\Q1.lst
+
+               ROM used:   73 words (4%)
+                           Largest free fragment is 1975
+               RAM used:   17 (8%) at main() level
+                           17 (8%) worst case
+               Stack used: 1 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   019
+0003:  NOP
+.................... #include <16F628A.h> 
+.................... //////////// Standard Header file for the PIC16F628A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F628A 
+....................  
+.................... #list 
+....................  
+.................... #fuses XT, NOMCLR, NOWDT 
+.................... #use delay(clock=4MHz) 
+0004:  MOVLW  2B
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  GOTO   047 (RETURN)
+....................  
+.................... /* 2020102404 */ 
+....................  
+.................... int8 segmentos[] = { 
+....................  
+....................    0b1011011, 0b0111111, 0b1011011, 0b0111111, 
+....................    0b0000110, 0b0111111, 0b1011011, 0b1100110, 
+....................    0b0111111, 0b1100110 
+....................  
+.................... }; 
+*
+001F:  MOVLW  5B
+0020:  MOVWF  20
+0021:  MOVLW  3F
+0022:  MOVWF  21
+0023:  MOVLW  5B
+0024:  MOVWF  22
+0025:  MOVLW  3F
+0026:  MOVWF  23
+0027:  MOVLW  06
+0028:  MOVWF  24
+0029:  MOVLW  3F
+002A:  MOVWF  25
+002B:  MOVLW  5B
+002C:  MOVWF  26
+002D:  MOVLW  66
+002E:  MOVWF  27
+002F:  MOVLW  3F
+0030:  MOVWF  28
+0031:  MOVLW  66
+0032:  MOVWF  29
+....................  
+.................... /* 2020102404 */ 
+....................  
+.................... void main(){ 
+*
+0019:  MOVF   03,W
+001A:  ANDLW  1F
+001B:  MOVWF  03
+001C:  MOVLW  07
+001D:  MOVWF  1F
+001E:  BCF    03.7
+*
+0033:  CLRF   2A
+.................... int numero = 0; 
+.................... while(true){ 
+....................    output_b(segmentos[numero]); 
+0034:  MOVLW  20
+0035:  ADDWF  2A,W
+0036:  MOVWF  04
+0037:  BCF    03.7
+0038:  MOVF   00,W
+0039:  MOVWF  2B
+003A:  BSF    03.5
+003B:  CLRF   06
+003C:  BCF    03.5
+003D:  MOVF   2B,W
+003E:  MOVWF  06
+....................    numero++; 
+003F:  INCF   2A,F
+....................    if(numero>9){ 
+0040:  MOVF   2A,W
+0041:  SUBLW  09
+0042:  BTFSS  03.0
+....................    numero=0; 
+0043:  CLRF   2A
+....................    } 
+....................    delay_ms(100); 
+0044:  MOVLW  64
+0045:  MOVWF  2B
+0046:  GOTO   004
+0047:  GOTO   034
+....................  
+.................... } 
+....................  
+.................... } 
+0048:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F41   NOWDT PUT XT NOMCLR BROWNOUT NOLVP NOCPD NOPROTECT

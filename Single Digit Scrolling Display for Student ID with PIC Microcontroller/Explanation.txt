@@ -1,0 +1,1 @@
+This project displays each digit of a given ID number one by one on a 7-segment display using a PIC microcontroller. The program is designed to read a predefined ID, such as a student ID, and sequentially display each digit on the 7-segment display, refreshing to show the next digit after a short delay.
