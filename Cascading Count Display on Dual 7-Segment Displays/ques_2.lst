@@ -1,0 +1,202 @@
+CCS PCM C Compiler, Version 5.007, 61971               03-abr-24 20:30
+
+               Filename:   C:\Users\Ivina\Desktop\AP2_microcontroladores\questão2_AP2\ques_2.lst
+
+               ROM used:   140 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   20 (5%) at main() level
+                           22 (6%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   030
+0003:  NOP
+.................... #include <16F877A.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+0004:  MOVF   2F,W
+0005:  CLRF   78
+0006:  SUBWF  2E,W
+0007:  BTFSC  03.0
+0008:  GOTO   00C
+0009:  MOVF   2E,W
+000A:  MOVWF  77
+000B:  GOTO   018
+000C:  CLRF   77
+000D:  MOVLW  08
+000E:  MOVWF  30
+000F:  RLF    2E,F
+0010:  RLF    77,F
+0011:  MOVF   2F,W
+0012:  SUBWF  77,W
+0013:  BTFSC  03.0
+0014:  MOVWF  77
+0015:  RLF    78,F
+0016:  DECFSZ 30,F
+0017:  GOTO   00F
+0018:  RETURN
+....................  
+.................... #list 
+....................  
+.................... //#fuses INTRC_IO,NOWDT,PUT,BROWNOUT,NOLVP,NOMCLR 
+.................... #use delay(clock=4MHz) 
+0019:  MOVLW  2E
+001A:  MOVWF  04
+001B:  BCF    03.7
+001C:  MOVF   00,W
+001D:  BTFSC  03.2
+001E:  GOTO   02D
+001F:  MOVLW  01
+0020:  MOVWF  78
+0021:  CLRF   77
+0022:  DECFSZ 77,F
+0023:  GOTO   022
+0024:  DECFSZ 78,F
+0025:  GOTO   021
+0026:  MOVLW  4A
+0027:  MOVWF  77
+0028:  DECFSZ 77,F
+0029:  GOTO   028
+002A:  GOTO   02B
+002B:  DECFSZ 00,F
+002C:  GOTO   01F
+002D:  BCF    0A.3
+002E:  BCF    0A.4
+002F:  GOTO   086 (RETURN)
+.................... // Definindo os pinos dos displays de 7 segmentos 
+....................  
+....................  
+.................... int8 segmentos[] = { 
+....................    0b00111111, 0b00000110, 0b01011011, 0b01001111, 
+....................    0b01100110, 0b01101101, 0b01111100, 0b00000111, 
+....................    0b01111111, 0b01100111 
+.................... }; 
+*
+003C:  MOVLW  3F
+003D:  BCF    03.5
+003E:  MOVWF  20
+003F:  MOVLW  06
+0040:  MOVWF  21
+0041:  MOVLW  5B
+0042:  MOVWF  22
+0043:  MOVLW  4F
+0044:  MOVWF  23
+0045:  MOVLW  66
+0046:  MOVWF  24
+0047:  MOVLW  6D
+0048:  MOVWF  25
+0049:  MOVLW  7C
+004A:  MOVWF  26
+004B:  MOVLW  07
+004C:  MOVWF  27
+004D:  MOVLW  7F
+004E:  MOVWF  28
+004F:  MOVLW  67
+0050:  MOVWF  29
+....................  
+....................  
+.................... void main () { 
+*
+0030:  MOVLW  FF
+0031:  MOVWF  2A
+0032:  BSF    03.5
+0033:  BSF    1F.0
+0034:  BSF    1F.1
+0035:  BSF    1F.2
+0036:  BCF    1F.3
+0037:  MOVLW  07
+0038:  MOVWF  1C
+0039:  BCF    03.7
+003A:  MOVLW  1F
+003B:  ANDWF  03,F
+*
+0051:  CLRF   2B
+....................  
+....................    int numero = 0; 
+....................    int i,j; 
+....................       
+....................    // Configurando os pinos dos displays como saída 
+....................    //output_c; 
+....................    //output_d; 
+....................    While(True){ 
+....................       for(i=0;i<10;i++){ 
+0052:  CLRF   2C
+0053:  MOVF   2C,W
+0054:  SUBLW  09
+0055:  BTFSS  03.0
+0056:  GOTO   08A
+....................          for(j=0;j<10;j++){ 
+0057:  CLRF   2D
+0058:  MOVF   2D,W
+0059:  SUBLW  09
+005A:  BTFSS  03.0
+005B:  GOTO   088
+....................             output_c(segmentos[numero/10]); 
+005C:  MOVF   2B,W
+005D:  MOVWF  2E
+005E:  MOVLW  0A
+005F:  MOVWF  2F
+0060:  CALL   004
+0061:  MOVLW  20
+0062:  ADDWF  78,W
+0063:  MOVWF  04
+0064:  BCF    03.7
+0065:  MOVF   00,W
+0066:  MOVWF  2E
+0067:  MOVLW  00
+0068:  MOVWF  2A
+0069:  BSF    03.5
+006A:  CLRF   07
+006B:  BCF    03.5
+006C:  MOVF   2E,W
+006D:  MOVWF  07
+....................             output_d(segmentos[numero%10]); 
+006E:  MOVF   2B,W
+006F:  MOVWF  2E
+0070:  MOVLW  0A
+0071:  MOVWF  2F
+0072:  CALL   004
+0073:  MOVLW  20
+0074:  ADDWF  77,W
+0075:  MOVWF  04
+0076:  BCF    03.7
+0077:  MOVF   00,W
+0078:  MOVWF  2E
+0079:  BSF    03.5
+007A:  CLRF   08
+007B:  BCF    03.5
+007C:  MOVF   2E,W
+007D:  MOVWF  08
+....................                    
+....................          numero++; 
+007E:  INCF   2B,F
+....................          //reinicia a contagem 
+....................          if(numero==100){ 
+007F:  MOVF   2B,W
+0080:  SUBLW  64
+0081:  BTFSC  03.2
+....................          numero=0; 
+0082:  CLRF   2B
+....................          }  delay_ms(100); 
+0083:  MOVLW  64
+0084:  MOVWF  2E
+0085:  GOTO   019
+0086:  INCF   2D,F
+0087:  GOTO   058
+....................    } 
+0088:  INCF   2C,F
+0089:  GOTO   053
+....................  
+.................... }}   
+008A:  GOTO   052
+.................... } 
+....................  
+008B:  SLEEP
+....................  
+....................  
+
+Configuration Fuses:
+   Word  1: 3F73   RC NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT
