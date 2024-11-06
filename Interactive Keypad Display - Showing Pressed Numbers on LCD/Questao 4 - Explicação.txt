@@ -1,0 +1,6 @@
+O microcontrolador utilizado foi o PIC16F877A, de clock 20 MHz. O LCD foi conectado as portas B, e o teclado as portas D.
+
+No código em C, importou-se os drivers do Keypad e do LCD. Também foi necessário especificar que a tela estava conectada as portas B, ao invés do padrão (D), por meio de um comando específico (foi consultada a biblioteca de cada driver para tomar conhecimento dessas técnicas). Iniciou-se cada dispositivo por meio de seu comando padrão, e colocou-se uma mensagem de inicio para o LCD. Por fim, usando o comando de reconhecimento de tecla, da biblioteca do Keypad, "kbd_getc()", foi possivel passar cada tecla acionada para o LCD.
+
+Como o enunciado pedia para aparecer a palavra 
+número e o número da tecla que apertou, essa instrução é realizada para cada tecla selecionada.

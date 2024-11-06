@@ -1,0 +1,24 @@
+[PROJECT]
+Target=Questao_4.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.015
+Compiler=PCM
+CCSVersion=5.015
+[Target Data]
+FileList=Questao_4.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[C:\Users\gabri\OneDrive\Área de Trabalho\MC - P2\Questao_4(2)\Questao_4]
+Type=4
+[mru-list]
+1=Questao_4.c
+[Opened Files]
+1=Questao_4.c
+2=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+3=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\KBD.C
+4=
+[Questao_4.c]
+Type=4
+[Units]
+Count=1
+1=Questao_4 (main)
