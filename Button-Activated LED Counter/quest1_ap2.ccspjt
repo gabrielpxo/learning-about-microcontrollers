@@ -1,0 +1,22 @@
+[PROJECT]
+Target=quest1_ap2.hex
+Processor_Text=PIC16F628A
+CCSVersion=5.007
+Compiler=PCM
+[Target Data]
+FileList=quest1_ap2.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[quest1_ap2.c]
+Type=4
+[mru-list]
+1=quest1_ap2.c
+[Opened Files]
+1=quest1_ap2.c
+2=..\contador 0 a 9\Contador.c
+3=..\Contador_matricula\contador_matricula.c
+4=..\semáforo simples\semaforo.c
+5=
+[Units]
+Count=1
+1=quest1_ap2 (main)

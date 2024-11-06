@@ -1,0 +1,45 @@
+
+ROM used:   71/2048 (3%)
+            71/2048 (3%) including unused fragments
+
+            0.1 Average locations per line
+            5.1 Average locations per statement
+
+RAM used:   7/224 (3%) at main() level
+            9/224 (4%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   27    14 100  quest1_ap2.c
+  508     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f628a.h
+----- -----
+  535    14 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     13  18    1             @delay_ms1
+0     54  76    2   346  4.7  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              14
+    Comments                96
+    Volume (V)              351
+    Difficulty (D)          4.4
+    Effort to implement (E) 1533
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   3
+    Maintainability (MI)    122
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF    67  1977  
+
+
+
