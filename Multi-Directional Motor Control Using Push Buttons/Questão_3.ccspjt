@@ -1,0 +1,19 @@
+[PROJECT]
+Target=Questão_3.hex
+Processor_Text=PIC16F628A
+CCSVersion=5.007
+Compiler=PCM
+[Target Data]
+FileList=Questão_3.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[Questão_3.c]
+Type=4
+[mru-list]
+1=Questão_3.c
+[Opened Files]
+1=Questão_3.c
+2=
+[Units]
+Count=1
+1=Questão_3 (main)

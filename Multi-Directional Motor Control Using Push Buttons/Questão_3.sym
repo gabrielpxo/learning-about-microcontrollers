@@ -1,0 +1,49 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01F.6   C1OUT
+01F.7   C2OUT
+021     main.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09B-09C @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+000004  main
+000004  @cinit1
+000006  @cinit2
+
+Project Directory:
+    C:\Users\gerle\OneDrive\Documentos\CCS C Projects\Prova 2\Questão 3\
+
+Project Files:
+    Questão_3.c                                             [03-abr-24 20:18  CRC=6E89936B]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f628a.h [21-jun-13 16:04  CRC=FEBF88CA]
+
+Source signature=6C08A4FF
+
+Units:
+    Questão_3 (main)
+
+Compiler Settings:
+    Processor:      PIC16F628A
+    Pointer Size:   16
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Questão_3.xsym
+    Errors:      Questão_3.err
+    Ext Symbols: Questão_3.esym
+    INHX8:       Questão_3.hex
+    Symbols:     Questão_3.sym
+    List:        Questão_3.lst
+    Debug/COFF:  Questão_3.cof
+    Project:     Questão_3.ccspjt
+    Call Tree:   Questão_3.tre
+    Statistics:  Questão_3.STA
